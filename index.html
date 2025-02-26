@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurveda Expert Booking</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
+        h2 { color: #4CAF50; }
+        form { display: flex; flex-direction: column; max-width: 300px; }
+        input, button { margin: 5px 0; padding: 10px; }
+        table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+    </style>
+</head>
+<body>
+
+    <h2>Ayurveda Expert Booking</h2>
+    
+    <form id="bookingForm">
+        <input type="text" id="userName" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="text" id="expertName" placeholder="Expert Name" required>
+        <input type="date" id="date" required>
+        <input type="time" id="time" required>
+        <button type="submit">Book Appointment</button>
+    </form>
+
+    <h2>Bookings List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Expert</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody id="bookingsTable"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

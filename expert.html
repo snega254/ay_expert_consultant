@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Expert Dashboard</h1>
+    <h2>Incoming Bookings:</h2>
+    <ul id="expert-booking-list"></ul>
+
+    <script>
+        // Connect to WebSocket server
+        const socket = new WebSocket("ws://localhost:8080");
+
+        // When a message (new booking) arrives
+        socket.onmessage = function (event) {
+            let bookingList = document.getElementById("expert-booking-list");
+            let listItem = document.createElement("li");
+            listItem.textContent = event.data; // Display booking details
+            bookingList.appendChild(listItem);
+
+            // Show an alert for the expert
+            alert(event.data);
+        };
+
+        // If WebSocket connection fails
+        socket.onerror = function (error) {
+            console.error("WebSocket Error:", error);
+        };
+
+        // When WebSocket connects
+        socket.onopen = function () {
+            console.log("See the Notifications Here");
+        };
+    </script>
+</body>
+</html>
